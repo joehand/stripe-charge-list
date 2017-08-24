@@ -1,0 +1,36 @@
+{
+  "name": "stripe-charge-list",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "description": "Handy wrapper around stripe charge list API",
+  "keywords": [
+    "stripe",
+    "customers",
+    "charges",
+    "API"
+  ],
+  "dependencies": {
+    "stripe": "^4.24.0",
+    "unix-time": "^1.0.1"
+  },
+  "devDependencies": {
+    "dependency-check": "^2.9.1",
+    "standard": "^10.0.3"
+  },
+  "scripts": {
+    "test": "standard && dependency-check ./package.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joehand/stripe-charge-list.git"
+  },
+  "author": "Joe Hand",
+  "bugs": {
+    "url": "https://github.com/joehand/stripe-charge-list/issues"
+  },
+  "homepage": "https://github.com/joehand/stripe-charge-list#readme",
+  "directories": {
+    "lib": "lib"
+  }
+}
