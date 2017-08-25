@@ -1,7 +1,7 @@
 var assert = require('assert')
 var Stripe = require('stripe')
 var unixTime = require('unix-time')
-var Charges = require('./lib/charges')
+var Charges = require('./charges')
 
 module.exports = StripeCharges
 
@@ -12,13 +12,17 @@ function StripeCharges (key, options) {
   this.options = Object.assign({ limit: 100 }, options)
 }
 
-StripeCharges.prototype.get = function (start, end, cb) {
+StripeCharges.prototype.get = function (start, end, opts, cb) {
   if (!(start instanceof Date)) throw new Error('Start must be a date.')
   if (!(end instanceof Date)) throw new Error('End must be a date.')
+  if (typeof opts === 'function') {
+    cb = opts
+    opts = {}
+  }
 
   var self = this
   var charges = []
-  paginateQuery()
+  paginateQuery(opts.startingAfter)
 
   function paginateQuery (lastId) {
     self._query(start, end, lastId, function (err, res) {

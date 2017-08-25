@@ -1,6 +1,7 @@
 module.exports = Charges
 
 function Charges (charges, opts) {
+  if (!(this instanceof Charges)) return new Charges(charges, opts)
   this.charges = charges
   this.options = opts || {}
   this.fee = this.options.fee
